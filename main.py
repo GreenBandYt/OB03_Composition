@@ -1,22 +1,41 @@
-class Animal:
-    def make_sound(self):
-        pass
+class Shape:
+    def area(self):
+        return 0
 
-class Dog(Animal):
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area_name(self):
+        return "Круга"
 
-    def make_sound(self):
-        print("гав")
+    def area(self):
+        return 3.14 * (self.radius ** 2)
 
-class Cat(Animal):
-    def make_sound(self):
-        print("мяу")
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+    def area(self):
+        return self.length * self.breadth
+    def area_name(self):
+        return "Прямоугольника"
+class Square(Shape):
+    def __init__(self, width):
+        self.width = width
+    def area(self):
+        return self.width * self.width
+    def area_name(self):
+        return "Квадрата"
 
-class Cow(Animal):
-    def make_sound(self):
-        print("мууу")
+def printArea(shape):
+    print(f'Площадь {shape.area_name()} равна {shape.area()}')
 
 
-animals = [Dog(), Cat(), Cow()]
+c = Circle(5)
+printArea(c)
 
-for animal in animals:
-    animal.make_sound()
+r = Rectangle(10, 5)
+printArea(r)
+
+s = Square(7)
+printArea(s)
